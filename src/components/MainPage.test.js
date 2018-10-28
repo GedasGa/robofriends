@@ -22,7 +22,7 @@ describe('test MainPage component', () => {
         expect(wrapper.instance().filterRobots()).toEqual([]);
     });
 
-    it('filter robots correctly when', () => {
+    it('filter robots correctly when there is a match', () => {
         const mockProps2 = {
             onRequestRobots: jest.fn(),
             robots: [{
@@ -42,7 +42,7 @@ describe('test MainPage component', () => {
         expect(wrapper2.instance().filterRobots()).toEqual(filteredRobots);
     });
 
-    it('filter robots correctly when', () => {
+    it('filter robots correctly when there is no match', () => {
         const mockProps3 = {
             onRequestRobots: jest.fn(),
             robots: [{
@@ -57,7 +57,7 @@ describe('test MainPage component', () => {
         expect(wrapper3.instance().filterRobots()).toEqual([]);
     });
 
-    it('filter robots correctly when', () => {
+    it('filter robots correctly when when isPending is true', () => {
         const mockProps4 = {
             onRequestRobots: jest.fn(),
             robots: [],
