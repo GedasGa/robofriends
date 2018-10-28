@@ -4,7 +4,6 @@ import CardList from './CardList';
 import SearchBox from './SearchBox';
 import Scroll from './Scroll';
 import ErrorBoundry from './ErrorBoundry';
-import './MainPage.css';
 
 class MainPage extends Component {
     componentDidMount() {

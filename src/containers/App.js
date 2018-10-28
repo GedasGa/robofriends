@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { setSearchField, requestRobots } from "../actions";
 import MainPage from '../components/MainPage.js';
 
+import './App.css';
+
 const mapStateToProps = state => {
     return {
         searchField: state.searchRobots.searchField,

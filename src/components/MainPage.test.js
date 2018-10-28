@@ -56,4 +56,15 @@ describe('test MainPage component', () => {
         const wrapper3 = shallow(<MainPage { ...mockProps3 }/>);
         expect(wrapper3.instance().filterRobots()).toEqual([]);
     });
+
+    it('filter robots correctly when', () => {
+        const mockProps4 = {
+            onRequestRobots: jest.fn(),
+            robots: [],
+            searchField: '',
+            isPending: true
+        };
+        const wrapper4 = shallow(<MainPage { ...mockProps4 }/>);
+        expect(wrapper4.instance().render()).toEqual(<h1>Loading</h1>);
+    });
 });
