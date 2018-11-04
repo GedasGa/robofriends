@@ -1,7 +1,14 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class ErrorBoundry extends Component {
-    constructor(props) {
+interface IAppProps {
+}
+
+interface IAppState {
+    hasError: boolean;
+}
+
+class ErrorBoundry extends React.Component<IAppProps, IAppState> {
+    constructor(props: IAppProps) {
         super(props);
         this.state = {
             hasError: false
@@ -9,6 +16,7 @@ class ErrorBoundry extends Component {
     };
 
     componentDidCatch(error, info) {
+        // @ts-ignore
         this.state({ hasError: true });
     };
 

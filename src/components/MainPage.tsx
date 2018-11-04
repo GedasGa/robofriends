@@ -1,17 +1,43 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import Header from './Header';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 import Scroll from './Scroll';
 import ErrorBoundry from './ErrorBoundry';
 
-class MainPage extends Component {
+export interface IRobot {
+    name: string;
+    id: number;
+    email: string;
+}
+
+interface IAppProps {
+    onRequestRobots(): void;
+    onSearchChange(): void;
+    isPending: boolean;
+    searchField: string;
+}
+
+interface IAppState {
+    robots: Array<IRobot>;
+    searchfield: string;
+}
+
+class MainPage extends React.Component<IAppProps, IAppState> {
+    constructor(props: IAppProps) {
+        super(props);
+        this.state = {
+            robots: [],
+            searchfield: ''
+        }
+    }
+
     componentDidMount() {
         this.props.onRequestRobots();
     };
 
     filterRobots = () => {
-        return this.props.robots.filter(robot =>{
+        return this.state.robots.filter(robot =>{
             return robot.name.toLowerCase().includes(this.props.searchField.toLowerCase());
         });
     };

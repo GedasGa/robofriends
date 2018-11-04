@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class CounterButton extends Component {
-    constructor(props) {
+interface IAppProps {
+    color: string;
+}
+
+interface IAppState {
+    count: number;
+}
+
+class CounterButton extends React.Component<IAppProps, IAppState> {
+    constructor(props: IAppProps) {
         super(props);
         this.state = {
             count: 0
